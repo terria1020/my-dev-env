@@ -12,7 +12,7 @@ fi
 
 # get Brewfile
 printf "\n\n🍻 get BrewFile\n"
-curl -s -O https://raw.githubusercontent.com/terria1020/my-brew-env/main/bundle/Brewfile
+curl -s -O https://raw.githubusercontent.com/terria1020/my-brew-env/main/brew_bundle/Brewfile
 
 # run brew bundle
 printf "\n\n🍻 run brew bundle\n"

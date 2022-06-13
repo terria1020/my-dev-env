@@ -1,0 +1,39 @@
+! custom keymap
+
+! linux-user key event check : xev -event keyboard
+
+! before apply, please backup to original keymap :
+!     xmodmap -pke ~/.orgMap
+
+! usage(apply) : xmodmap <filename>
+
+clear mod1
+
+!add mod1 = Alt_L Alt_R
+add mod1 = Alt_L
+
+
+! for use Mode mapping (Combo key)
+! if if user keyboard's left Alt keycode is 64
+keycode 64 = Mode_switch
+
+! keycode <code> = <base> | <SHIFT + Key> | <Mode_switch + Key> | <Mode_switch + SHIFT +  Key>
+keycode 44 = j J Left
+keycode 45 = k K Down
+keycode 46 = l L Right
+keycode 31 = i I Up
+keycode 30 = u U Home
+keycode 32 = o O End
+keycode 40 = d D Delete
+
+! original Alt use (for Alt-Tab, ...)
+! if user keyboard's right Alt keycode is 108 (keysym 'Hangul')
+keycode 108 = Alt_L
+
+! for some no mapping based key setting
+keycode 43 = h H
+keycode 47 = semicolon colon
+
+! etc : 
+! if remove key in mod-key : xmodmap -e 'remove mod<number> = <keysym>
+!     example(if Alt, Hangul overlap mapping error) : xmodmap -e 'remove mod1 = Hangul'
