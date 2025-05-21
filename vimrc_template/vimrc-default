@@ -1,0 +1,15 @@
+" ===== 공통 vim 설정 =====
+set number              " 줄 번호 표시
+set relativenumber      " 상대 줄 번호
+set cursorline          " 현재 줄 강조
+set tabstop=2           " 탭을 2칸으로 표시
+set shiftwidth=2        " 자동 들여쓰기 폭
+set softtabstop=2       " 편집 시 탭을 2칸처럼 취급
+set expandtab           " 탭 입력 시 공백 사용
+set autoindent          " 자동 들여쓰기
+set smartindent         " 스마트 들여쓰기
+set nowrap              " 줄바꿈 비활성화
+set scrolloff=5         " 위아래 여백 줄 수
+set encoding=utf-8
+syntax on               " 구문 강조
+filetype plugin indent on
