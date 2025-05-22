@@ -1,6 +1,6 @@
 " ===== 공통 vim 설정 =====
 set number              " 줄 번호 표시
-set relativenumber      " 상대 줄 번호
+set norelativenumber      " 상대 줄 번호 X
 set cursorline          " 현재 줄 강조
 set tabstop=2           " 탭을 2칸으로 표시
 set shiftwidth=2        " 자동 들여쓰기 폭
