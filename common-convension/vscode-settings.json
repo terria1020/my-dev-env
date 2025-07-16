@@ -1,6 +1,7 @@
 {
   // vscode 설정 파일 일부 예시, settings.json에 추가
-  // 둘 중에 하나로 설정, 주석은 삭제해야 함
-  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/refs/heads/gh-pages/eclipse-java-google-style.xml"
-  // "java.format.settings.url": "https://raw.githubusercontent.com/terria1020/my-dev-env/refs/heads/main/common-convension/eclipse-java-google-style.xml"
+  // 셋 중에 하나로 설정, intellj 설정과 eclipse 설정 구분 필요, 주석은 삭제해야 함
+  // "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/refs/heads/gh-pages/eclipse-java-google-style.xml"
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/refs/heads/gh-pages/intellij-java-google-style.xml"
+  // "java.format.settings.url": "https://raw.githubusercontent.com/terria1020/my-dev-env/refs/heads/main/common-convension/intellij-java-google-style.xml"
 }
