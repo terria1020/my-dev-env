@@ -1,7 +1,9 @@
 {
   // vscode 설정 파일 일부 예시, settings.json에 추가
   // 셋 중에 하나로 설정, intellj 설정과 eclipse 설정 구분 필요, 주석은 삭제해야 함
+  // 온라인이 되지 않는 환경에서 사용할 경우, 로컬에 해당 스타일 파일 위치시킨 후 로컬 파일 경로로 변경 필요 (가장 하단 주석 참고)
   // "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/refs/heads/gh-pages/eclipse-java-google-style.xml"
   "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/refs/heads/gh-pages/intellij-java-google-style.xml"
   // "java.format.settings.url": "https://raw.githubusercontent.com/terria1020/my-dev-env/refs/heads/main/common-convension/intellij-java-google-style.xml"
+  // "java.format.settings.url": "${env:HOME}/.config/Code/User/intellij-java-google-style.xml",
 }
