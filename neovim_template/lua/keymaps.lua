@@ -20,4 +20,8 @@ map("n", "<A-k>", "<cmd>m .-2<cr>==")
 map("v", "<A-j>", ":m '>+1<cr>gv=gv")
 map("v", "<A-k>", ":m '<-2<cr>gv=gv")
 
+map("n", "<leader>sv", "<cmd>vsplit<cr>", { desc = "Vertical split" })
+map("n", "<leader>sh", "<cmd>split<cr>", { desc = "Horizontal split" })
+map("n", "<leader>sc", "<cmd>close<cr>", { desc = "Close split" })
+
 map("n", "<Esc>", "<cmd>nohlsearch<cr>")
