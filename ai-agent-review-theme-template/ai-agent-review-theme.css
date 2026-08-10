@@ -1,0 +1,546 @@
+/*
+ * AI agent review/document theme
+ * - 밝은 teal/pastel 계열
+ * - 과한 그림자, 다크 테마, 장식형 카드 배경 제거
+ * - 기존 HTML 문서의 .container/.page, .badge, .info/.warning/.success/.danger,
+ *   .toc, table, pre/code 구조와 호환
+ */
+
+:root {
+  color-scheme: light;
+
+  --doc-bg: #f6faf9;
+  --doc-surface: #ffffff;
+  --doc-surface-soft: #eef7f5;
+  --doc-surface-muted: #f8fafc;
+
+  --doc-text: #163230;
+  --doc-text-soft: #475f5c;
+  --doc-text-muted: #71817f;
+
+  --doc-accent: #0f766e;
+  --doc-accent-strong: #115e59;
+  --doc-accent-soft: #dff5f1;
+  --doc-accent-line: #99e4da;
+
+  --doc-border: #d9e7e4;
+  --doc-border-strong: #b8d6d1;
+
+  --doc-code-bg: #0f172a;
+  --doc-code-text: #f8fafc;
+  --doc-inline-code-bg: #edf6f4;
+  --doc-inline-code-text: #0f766e;
+
+  --doc-success: #15803d;
+  --doc-success-bg: #eefbf2;
+  --doc-warning: #b45309;
+  --doc-warning-bg: #fff7e6;
+  --doc-danger: #b42318;
+  --doc-danger-bg: #fff0ee;
+  --doc-info: #0f766e;
+  --doc-info-bg: #effaf8;
+
+  --doc-radius: 8px;
+  --doc-radius-sm: 5px;
+  --doc-shadow-soft: 0 1px 2px rgba(15, 82, 76, 0.06);
+}
+
+/* Optional pastel accents for documents that should not be purely teal. */
+:root[data-accent="sage"] {
+  --doc-accent: #4d7c0f;
+  --doc-accent-strong: #3f6212;
+  --doc-accent-soft: #eef8dd;
+  --doc-accent-line: #cce6a5;
+  --doc-inline-code-text: #4d7c0f;
+}
+
+:root[data-accent="sky"] {
+  --doc-accent: #0369a1;
+  --doc-accent-strong: #075985;
+  --doc-accent-soft: #e6f6ff;
+  --doc-accent-line: #bae6fd;
+  --doc-inline-code-text: #0369a1;
+}
+
+:root[data-accent="lavender"] {
+  --doc-accent: #6d5bd0;
+  --doc-accent-strong: #5746af;
+  --doc-accent-soft: #f0edff;
+  --doc-accent-line: #d8d0ff;
+  --doc-inline-code-text: #6d5bd0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--doc-bg);
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px 64px;
+  background: var(--doc-bg);
+  color: var(--doc-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard",
+    "Malgun Gothic", "Noto Sans KR", "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container,
+.page,
+main,
+article {
+  width: min(100%, 940px);
+  margin: 0 auto;
+}
+
+.container,
+.page {
+  background: var(--doc-surface);
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-radius);
+  padding: 42px 48px;
+  box-shadow: var(--doc-shadow-soft);
+}
+
+.page {
+  max-width: 820px;
+}
+
+header,
+.masthead {
+  margin: 0 0 36px;
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--doc-border);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  color: var(--doc-accent);
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background: var(--doc-accent);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--doc-text);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h1 {
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--doc-accent);
+  color: var(--doc-accent-strong);
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+}
+
+.masthead h1,
+header h1 {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+h2 {
+  margin: 44px 0 16px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--doc-border);
+  color: var(--doc-accent-strong);
+  font-size: 1.45rem;
+}
+
+h3 {
+  margin: 28px 0 10px;
+  color: #2f4542;
+  font-size: 1.14rem;
+}
+
+h4 {
+  margin: 22px 0 8px;
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.lead,
+.lede {
+  max-width: 68ch;
+  color: var(--doc-text-soft);
+  font-size: 1.03rem;
+}
+
+.note,
+.muted,
+.meta-row {
+  color: var(--doc-text-muted);
+  font-size: 0.92rem;
+}
+
+ul,
+ol {
+  margin: 0 0 1rem;
+  padding-left: 1.45rem;
+}
+
+li {
+  margin: 0 0 0.45rem;
+}
+
+strong {
+  color: var(--doc-text);
+  font-weight: 700;
+}
+
+a {
+  color: var(--doc-accent-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+hr {
+  height: 1px;
+  margin: 36px 0;
+  border: 0;
+  border-top: 1px dashed var(--doc-border-strong);
+}
+
+code,
+.mono {
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", Consolas, monospace;
+}
+
+code {
+  padding: 0.13em 0.38em;
+  border-radius: var(--doc-radius-sm);
+  background: var(--doc-inline-code-bg);
+  color: var(--doc-inline-code-text);
+  font-size: 0.88em;
+}
+
+pre {
+  margin: 18px 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  border-radius: var(--doc-radius);
+  background: var(--doc-code-bg);
+  color: var(--doc-code-text);
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.58;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
+.toc {
+  margin: 22px 0;
+  padding: 16px 22px;
+  border: 1px solid var(--doc-accent-line);
+  border-radius: var(--doc-radius);
+  background: var(--doc-accent-soft);
+}
+
+.toc ol,
+.toc ul {
+  margin-bottom: 0;
+}
+
+.badge,
+.tag,
+.verdict {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  margin: 2px 5px 2px 0;
+  padding: 0.22rem 0.62rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--doc-accent-soft);
+  color: var(--doc-accent-strong);
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.tag {
+  border-color: var(--doc-border);
+  border-radius: var(--doc-radius-sm);
+  background: var(--doc-surface-muted);
+  color: var(--doc-text-soft);
+}
+
+.info,
+.success,
+.warning,
+.danger,
+.callout {
+  margin: 20px 0;
+  padding: 15px 18px;
+  border-left: 4px solid var(--doc-info);
+  border-radius: 0 var(--doc-radius) var(--doc-radius) 0;
+  background: var(--doc-info-bg);
+}
+
+.callout .label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--doc-accent-strong);
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.success {
+  border-left-color: var(--doc-success);
+  background: var(--doc-success-bg);
+}
+
+.warning,
+.callout.warn {
+  border-left-color: var(--doc-warning);
+  background: var(--doc-warning-bg);
+}
+
+.danger,
+.callout.risk {
+  border-left-color: var(--doc-danger);
+  background: var(--doc-danger-bg);
+}
+
+.danger .label,
+.callout.risk .label {
+  color: var(--doc-danger);
+}
+
+.warning .label,
+.callout.warn .label {
+  color: var(--doc-warning);
+}
+
+.table-wrap {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 620px;
+  margin: 18px 0;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border: 1px solid var(--doc-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+th,
+thead th {
+  background: var(--doc-accent-soft);
+  color: var(--doc-accent-strong);
+  font-weight: 700;
+}
+
+tbody tr:nth-child(even) td {
+  background: #fbfdfc;
+}
+
+td.ok,
+.verdict.yes {
+  color: var(--doc-success);
+  font-weight: 700;
+}
+
+td.mid,
+.verdict.partial {
+  color: var(--doc-warning);
+  font-weight: 700;
+}
+
+td.no,
+.verdict.no {
+  color: var(--doc-danger);
+  font-weight: 700;
+}
+
+.section,
+.block {
+  margin: 40px 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-num {
+  flex: 0 0 auto;
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--doc-radius-sm);
+  background: var(--doc-accent-soft);
+  color: var(--doc-accent-strong);
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.section-head h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.steps {
+  counter-reset: step;
+}
+
+.step,
+.limit-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--doc-border);
+}
+
+.step {
+  counter-increment: step;
+}
+
+.step::before {
+  content: counter(step, decimal-leading-zero);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 1.7rem;
+  border-radius: var(--doc-radius-sm);
+  background: var(--doc-accent-soft);
+  color: var(--doc-accent-strong);
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.step:last-child,
+.limit-item:last-child {
+  border-bottom: 0;
+}
+
+/* .step::before is a generated counter box, which also counts as a grid
+   item. With only 2 explicit columns, the .title/.body pair (3rd/4th
+   items) wraps onto a new row and .body lands in the narrow 2rem column.
+   Force both into column 2 so they stack under the counter instead. */
+.step > .title,
+.step > .body {
+  grid-column: 2;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.body {
+  color: var(--doc-text-soft);
+}
+
+footer,
+.closing {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--doc-border);
+  color: var(--doc-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 0;
+  }
+
+  .container,
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    border: 0;
+    border-radius: 0;
+    padding: 28px 20px 48px;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 1.65rem;
+  }
+
+  h2 {
+    font-size: 1.28rem;
+  }
+
+  table {
+    font-size: 0.88rem;
+  }
+}
+
+@media print {
+  body {
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .container,
+  .page {
+    width: 100%;
+    max-width: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  pre,
+  .toc,
+  .info,
+  .success,
+  .warning,
+  .danger,
+  .callout {
+    break-inside: avoid;
+  }
+}
